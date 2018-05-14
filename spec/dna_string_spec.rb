@@ -13,4 +13,9 @@ describe DNAString do
         expect(dna_string.to_RNA).to eq "GAUGGAACUUGACUACGUAAAUU"
     end
 
+    it 'should output the DNA string with the to_str method' do
+        string_test = "GATGGAACTTGACTACGTAAATT"
+        dna_string = DNAString.new(string_test)
+        expect(dna_string.to_str).to eq string_test
+    end
 end

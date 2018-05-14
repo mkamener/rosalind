@@ -4,6 +4,10 @@ class DNAString
         @dna_string.upcase!
     end
 
+    def to_str
+        return @dna_string
+    end
+
     def count
         a_count = @dna_string.count("A")
         c_count = @dna_string.count("C")
