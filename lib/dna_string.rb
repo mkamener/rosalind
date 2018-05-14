@@ -4,7 +4,7 @@ class DNAString
         @dna_string.upcase!
     end
 
-    def to_str
+    def to_s
         return @dna_string
     end
 
