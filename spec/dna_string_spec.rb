@@ -24,4 +24,16 @@ describe DNAString do
         dna_string = DNAString.new(string_test)
         expect(dna_string.reverse_complement).to eq "ACCGGGTTTT"
     end
+
+    it 'should return 70.0 when asked for the GC-content of ATAGCGCGCG' do
+        string_test = "ATAGCGCGCG"
+        dna_string = DNAString.new(string_test)
+        expect(dna_string.gc_content).to eq 70.0
+    end
+
+    it 'should return 60.919540 when asked for the GC-content of a longer string' do
+        string_test = "CCACCCTCGTGGTATGGCTAGGCATTCAGGAACCGGAGAACGCTTCAGACCAGCCCGGACTGGGAACCTGCGGGCAGTAGGTGGAAT"
+        dna_string = DNAString.new(string_test)
+        expect(dna_string.gc_content).to be_within(0.001).of(60.919540)
+    end
 end

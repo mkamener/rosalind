@@ -30,6 +30,14 @@ class DNAString
         return output.reverse
     end
 
+    def gc_content
+        string = @dna_string.dup
+        gc_count = string.split(//).reduce(0) do |sum, char|
+            char == "G" || char == "C" ? sum + 1 : sum
+        end
+        return (gc_count.to_f / @dna_string.length)*100.0
+    end
+
     private
 
     def swap_nucleotide(input, x, y)
