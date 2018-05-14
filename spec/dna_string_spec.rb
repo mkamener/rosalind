@@ -1,9 +1,16 @@
 require 'dna_string'
 
 describe DNAString do
-    string_test = "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC"
     it 'should return 20 12 17 21 when given the test string as input' do
+        string_test = "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC"
         dna_string = DNAString.new(string_test)
         expect(dna_string.count).to eq "20 12 17 21"
     end
+
+    it 'should correctly subsitute T with U when outputting to RNA' do
+        string_test = "GATGGAACTTGACTACGTAAATT"
+        dna_string = DNAString.new(string_test)
+        expect(dna_string.to_RNA).to eq "GAUGGAACUUGACUACGUAAAUU"
+    end
+
 end

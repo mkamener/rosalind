@@ -12,4 +12,8 @@ class DNAString
         
         return "#{a_count} #{c_count} #{g_count} #{t_count}"
     end
+
+    def to_RNA
+        return @dna_string.gsub("T", "U")
+    end
 end
