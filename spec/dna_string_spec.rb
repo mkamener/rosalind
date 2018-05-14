@@ -16,6 +16,12 @@ describe DNAString do
     it 'should output the DNA string with the to_s method' do
         string_test = "GATGGAACTTGACTACGTAAATT"
         dna_string = DNAString.new(string_test)
-        expect(dna_string.to_str).to eq string_test
+        expect(dna_string.to_s).to eq string_test
+    end
+
+    it 'should output ACCGGGTTTT when asked for the reverse complement of AAAACCCGGT' do
+        string_test = "AAAACCCGGT"
+        dna_string = DNAString.new(string_test)
+        expect(dna_string.reverse_complement).to eq "ACCGGGTTTT"
     end
 end

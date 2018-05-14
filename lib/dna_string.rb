@@ -20,4 +20,21 @@ class DNAString
     def to_RNA
         return @dna_string.gsub("T", "U")
     end
+
+    def reverse_complement
+        output = @dna_string.dup
+        
+        output = swap_nucleotide(output, "A", "T")
+        output = swap_nucleotide(output, "C", "G")
+
+        return output.reverse
+    end
+
+    private
+
+    def swap_nucleotide(input, x, y)
+        output = input.gsub(x, "+")
+        output = output.gsub(y, x)
+        return output.gsub("+", y)
+    end
 end
