@@ -1,7 +1,11 @@
 class DNAString
-    def initialize(dna_string)
+
+    attr_reader :name
+
+    def initialize(dna_string, name="Rosalind_xxxx")
         @dna_string = dna_string if dna_string.is_a? String
         @dna_string.upcase!
+        @name = name
     end
 
     def to_s

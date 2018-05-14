@@ -36,4 +36,10 @@ describe DNAString do
         dna_string = DNAString.new(string_test)
         expect(dna_string.gc_content).to be_within(0.001).of(60.919540)
     end
+
+    it 'should have name "Test_name_1234" when initialized with that name' do
+        name = "Test_name_1234"
+        dna_string = DNAString.new("ACTG", name)
+        expect(dna_string.name).to eq name
+    end
 end
