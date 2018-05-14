@@ -42,4 +42,10 @@ describe DNAString do
         dna_string = DNAString.new("ACTG", name)
         expect(dna_string.name).to eq name
     end
+
+    it 'should return the value of 7 when the following dna_strings are compared for hamming distance' do
+        dna_string1 = DNAString.new("GAGCCTACTAACGGGAT")
+        dna_string2 = DNAString.new("CATCGTAATGACGGCCT")
+        expect(dna_string1.hamming_distance(dna_string2)).to eq 7
+    end
 end

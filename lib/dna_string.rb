@@ -1,11 +1,12 @@
 class DNAString
 
-    attr_reader :name
+    attr_reader :name, :length
 
     def initialize(dna_string, name="Rosalind_xxxx")
         @dna_string = dna_string if dna_string.is_a? String
         @dna_string.upcase!
         @name = name
+        @length = @dna_string.length
     end
 
     def to_s
@@ -40,6 +41,17 @@ class DNAString
             char == "G" || char == "C" ? sum + 1 : sum
         end
         return (gc_count.to_f / @dna_string.length)*100.0
+    end
+
+    def [](x)
+        return @dna_string[x]
+    end
+
+    def hamming_distance(other_string)
+        return nil unless other_string.is_a? DNAString
+        return nil unless other_string.length == @dna_string.length
+
+        return (0...@dna_string.length).reduce(0) {|sum, x| @dna_string[x] != other_string[x] ? sum + 1 : sum }
     end
 
     private
